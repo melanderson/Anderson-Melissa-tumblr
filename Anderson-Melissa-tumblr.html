@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        p{
+            font-family:Georgia, serif;
+            margin:10px;
+            padding:10px;
+        }
+        h1{
+            font-weight:bolder;
+
+        }
+        h2{
+            margin-left:20px;
+            font-family:Georgia, serif;
+            padding-top:15px;
+        }
+        body {
+            background-image: url("https://s-media-cache-ak0.pinimg.com/originals/f6/4a/6e/f64a6e528f23896656e82a7940f6509d.jpg");
+            min-height: 100%;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-attachment: fixed;
+            background-position: center top;
+            font-family:Georgia, serif;
+        }
+
+        }
+        header{
+
+        }
+        li{
+            list-style-type: none;
+        }
+        article {
+            background-color: white;
+            margin-left:25%;
+            margin-right:25%;
+            border-radius:20px;
+            min-width: 275px;
+            margin-bottom:5%;
+        }
+        .tumblr-title {
+            display:block;
+            text-align: center;
+            font-family: Copperplate/Copperplate Gothic Light, sans-serif;
+            font-weight: bold;
+            color:  #000000;
+            background-color:#fff;
+            padding:5px;
+            border-radius:10px;
+            margin-left:30%;
+            margin-right:30%;
+            clear:both;
+            min-width:185px;
+
+            }
+        .description{
+            font-family: Copperplate/Copperplate Gothic Light, sans-serif;
+            font-weight:normal;
+            font-size:18px;
+            display:block;
+            text-align:center;
+            background-color:#fff;
+            padding:5px;
+            border-radius:10px;
+            margin-left:32%;
+            margin-right:32%;
+            min-width:170px;
+        }
+        #profile-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:30px;
+            border-radius: 50px;
+        }
+        .article-title {
+            font-weight:bold;
+            padding left:10px;
+        }
+
+        .number-circle{
+            border-radius: 50px;
+            background:white;
+            margin-left:20%;
+            font-size:40px;
+            border: 3px solid #666;
+            text-align:center;
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            line-height: 45px;
+            padding:10px;
+        }
+
+        .date-display{
+            background-color:white;
+            display:inline-block;
+            padding:5px;
+            border-radius: 5px;
+            font-size:20px;
+            border: 2px solid #666;
+
+        }
+        .time-ago{
+            margin-left:5px;
+            background-color:white;
+            display:inline;
+            border-radius: 5px;
+            padding:6px;
+            font-size:12px;
+            border: 2px solid #666;
+        }
+        .reblog_button{
+            float: left;
+            margin-top: -2px;
+        }
+        .photo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            max-width:90%;
+            padding:5%;
+        }
+        .post-photoset {
+            margin-top:15px;
+        }
+        #photo-set{
+            display: inline;
+            max-width:90%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align:center;
+        }
+        div{
+            font-family:Georgia, serif;
+            padding:10px;
+        }
+        </style>
+
+
+        <title> {Title} </title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+    </head>
+    <body>
+    <header>
+        <img src="http://www.uncommongoods.com/images/items/25200/25251_1_1200px.jpg" alt="glass paper weight" width=100px height= 100 px id="profile-image">
+        <h1 class="tumblr-title"> Fun With Glass </h1>
+        <h2 class="description"> {Description} </h2>
+
+    </header>
+
+
+    {block:Posts}
+
+        {block:Date} <div class="number-circle"> {DayOfMonth}</div>
+            <div class="date-display">{Month} {year} </div> <div class="time-ago"> {TimeAgo}</div> {/block:Date}
+        {block:Text}
+
+
+            <article>
+
+
+                {block:Title}
+                    <h2 class="article-title"> {Title} </h2>
+                {/block:title}
+                {Body}
+
+                <table border="0">
+                <tr>
+
+                <td>
+                <form>
+                    {LikeButton}
+                </form>
+                </td>
+
+                <td>
+                <form>
+                    <class="reblog_button">{ReblogButton}</class>
+                </form>
+                </td>
+
+                </tr>
+
+                </table>
+                </article>
+                {/block:Text}
+
+                {block:Photo}
+                    <article>
+
+                    <li>
+                        <img class="photo" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                    <table border="0">
+                    <tr>
+
+                    <td>
+                    <form>
+                        {LikeButton}
+                    </form>
+                    </td>
+
+                    <td>
+                    <form>
+                        <class="reblog_button">{ReblogButton}</class>
+                    </form>
+                    </td>
+
+                    </tr>
+
+                    </table>
+                    </article>
+                {/block:Photo}
+
+                {block:Panorama}
+                    <article>
+
+
+                    <li>
+                        {LinkOpenTag}
+                            <img class="photo" src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                    <table border="0">
+                    <tr>
+
+                    <td>
+                    <form>
+                        {LikeButton}
+                    </form>
+                    </td>
+
+                    <td>
+                    <form>
+                        <class="reblog_button">{ReblogButton}</class>
+                    </form>
+                    </td>
+
+                    </tr>
+
+                    </table>
+                    </article>
+                {/block:Panorama}
+
+                {block:Photoset}
+                <article>
+
+                    <li class="post-photoset">
+                        <div id="photo-set">{Photoset}</div>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                    <table border="0">
+                    <tr>
+
+                    <td>
+                    <form>
+                        {LikeButton}
+                    </form>
+                    </td>
+
+                    <td>
+                    <form>
+                        <class="reblog_button">{ReblogButton}</class>
+                    </form>
+                    </td>
+
+                    </tr>
+
+                    </table>
+                </article>
+                {/block:Photoset}
+
+                {/block:Posts}
+
+
+    {/block:Posts}
+    </body>
+</html>
